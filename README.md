@@ -1,7 +1,7 @@
 # Ep3Logica
 
 Implementação de um automato finito aceitador deterministico e não deterministico.
-[Documentação](./doc/index.html)
+[Documentação](http://./doc/index.html)
 
 ## Estrutura do automato
 
