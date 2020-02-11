@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.21.3">
+    <meta name="project" content="Ep3Logica v1.0.0">
+    <title>Ep3Logica — Ep3Logica v1.0.0</title>
+    <link rel="stylesheet" href="dist/elixir-0ab8a6a80ebaaa287431.css" />
+    <script src="dist/sidebar_items-1d635d5f9c.js"></script>
+      <script src="docs_config.js"></script>
+    <script async src="dist/app-a225d03098e64fef431a.js"></script>
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button">
+      <span class="icon-cross" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Search" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="api-reference.html" class="sidebar-projectName">
+Ep3Logica      </a>
+      <h2 class="sidebar-projectVersion">
+        v1.0.0
+      </h2>
+    </div>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+      <h1>
+        <small class="app-vsn">Ep3Logica v1.0.0</small>
+Ep3Logica      </h1>
+
+
+        <section id="moduledoc">
+<p>Implementação de um automato finito aceitador de estados deterministico e não deterministico.</p>
+        </section>
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:action/0">action()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:automaton/0">automaton()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:state/0">state()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:tape/0">tape()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:transitions/0">transitions()</a>
+  </div>
+</div>
+  </div>
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#create_automaton/4">create_automaton(initial_state, transitions, accept_states, actions)</a>
+  </div>
+    <div class="summary-synopsis"><p>Cria o automato finito</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#do_step/2">do_step(automaton, new_state)</a>
+  </div>
+    <div class="summary-synopsis"><p>Muda o estado do automato para &quot;new_state&quot; e reconfigura sua fita.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_next_states/1">get_next_states(automaton)</a>
+  </div>
+    <div class="summary-synopsis"><p>Retorna uma lista com os possíveis próximos estados do automato.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#is_accepted?/1">is_accepted?(automaton)</a>
+  </div>
+    <div class="summary-synopsis"><p>Verifica se o automato se encontra em um estado de aceitação</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#run_automaton/1">run_automaton(automaton)</a>
+  </div>
+    <div class="summary-synopsis"><p>Executa o automato finito deterministico ou não deterministico.
+Tratando-se de um automato &quot;aceitador&quot; busca-se um estado final que seja um estado de aceitação. Caso qualquer um dos caminhos gerados
+pela sequência de ações resulte em um estado de aceitação a função retorna true, caso contrário retorna false.</p></div>
+</div>
+  </div>
+        </section>
+
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Types          </h1>
+          <div class="types-list">
+<section class="detail" id="t:action/0">
+  <div class="detail-header">
+    <a href="#t:action/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">action()</h1>
+      <div class="specs">
+          <pre>action() :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>()</pre>
+      </div>
+  </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="t:automaton/0">
+  <div class="detail-header">
+    <a href="#t:automaton/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">automaton()</h1>
+      <div class="specs">
+          <pre>automaton() :: %{
+  current_state: <a href="#t:state/0">state</a>(),
+  transitions: <a href="#t:transitions/0">transitions</a>(),
+  accept_states: [<a href="#t:state/0">state</a>(), ...],
+  tape: <a href="#t:tape/0">tape</a>()
+}</pre>
+      </div>
+  </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="t:state/0">
+  <div class="detail-header">
+    <a href="#t:state/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">state()</h1>
+      <div class="specs">
+          <pre>state() :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>()</pre>
+      </div>
+  </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="t:tape/0">
+  <div class="detail-header">
+    <a href="#t:tape/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">tape()</h1>
+      <div class="specs">
+          <pre>tape() :: %{left: [<a href="#t:action/0">action</a>(), ...], right: [<a href="#t:action/0">action</a>(), ...]}</pre>
+      </div>
+  </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="t:transitions/0">
+  <div class="detail-header">
+    <a href="#t:transitions/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">transitions()</h1>
+      <div class="specs">
+          <pre>transitions() :: [{<a href="#t:state/0">state</a>(), [{<a href="#t:action/0">action</a>(), [<a href="#t:state/0">state</a>()]}, ...]}, ...]</pre>
+      </div>
+  </div>
+  <section class="docstring">
+  </section>
+</section>
+          </div>
+        </section>
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Functions          </h1>
+          <div class="functions-list">
+<section class="detail" id="create_automaton/4">
+  <div class="detail-header">
+    <a href="#create_automaton/4" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">create_automaton(initial_state, transitions, accept_states, actions)</h1>
+      <div class="specs">
+          <pre>create_automaton(<a href="#t:state/0">state</a>(), <a href="#t:transitions/0">transitions</a>(), [<a href="#t:state/0">state</a>(), ...], [<a href="#t:action/0">action</a>(), ...]) ::
+  <a href="#t:automaton/0">automaton</a>()</pre>
+      </div>
+  </div>
+  <section class="docstring">
+<p>Cria o automato finito</p>
+  </section>
+</section>
+<section class="detail" id="do_step/2">
+  <div class="detail-header">
+    <a href="#do_step/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">do_step(automaton, new_state)</h1>
+      <div class="specs">
+          <pre>do_step(<a href="#t:automaton/0">automaton</a>(), <a href="#t:state/0">state</a>()) :: <a href="#t:automaton/0">automaton</a>()</pre>
+      </div>
+  </div>
+  <section class="docstring">
+<p>Muda o estado do automato para &quot;new_state&quot; e reconfigura sua fita.</p>
+  </section>
+</section>
+<section class="detail" id="get_next_states/1">
+  <div class="detail-header">
+    <a href="#get_next_states/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_next_states(automaton)</h1>
+      <div class="specs">
+          <pre>get_next_states(<a href="#t:automaton/0">automaton</a>()) :: [<a href="#t:state/0">state</a>(), ...]</pre>
+      </div>
+  </div>
+  <section class="docstring">
+<p>Retorna uma lista com os possíveis próximos estados do automato.</p>
+  </section>
+</section>
+<section class="detail" id="is_accepted?/1">
+  <div class="detail-header">
+    <a href="#is_accepted?/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">is_accepted?(automaton)</h1>
+      <div class="specs">
+          <pre>is_accepted?(<a href="#t:automaton/0">automaton</a>()) :: true | false</pre>
+      </div>
+  </div>
+  <section class="docstring">
+<p>Verifica se o automato se encontra em um estado de aceitação</p>
+  </section>
+</section>
+<section class="detail" id="run_automaton/1">
+  <div class="detail-header">
+    <a href="#run_automaton/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">run_automaton(automaton)</h1>
+      <div class="specs">
+          <pre>run_automaton(<a href="#t:automaton/0">automaton</a>()) :: true | false</pre>
+      </div>
+  </div>
+  <section class="docstring">
+<p>Executa o automato finito deterministico ou não deterministico.
+Tratando-se de um automato &quot;aceitador&quot; busca-se um estado final que seja um estado de aceitação. Caso qualquer um dos caminhos gerados
+pela sequência de ações resulte em um estado de aceitação a função retorna true, caso contrário retorna false.</p>
+  </section>
+</section>
+          </div>
+        </section>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.21.3),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>
